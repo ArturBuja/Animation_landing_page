@@ -1,10 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 
 :root {
-    --left-bg-color: rgba(0, 111, 205, .7);
+    --left-bg-color: rgba(0, 111, 205, .4);
     --left-btn-hover-color: rgba(0, 111, 205, 1);
     --right-bg-color: rgba(43, 43, 43, .8);
     --right-btn--hover-color: rgba(28, 122, 28, 1);
+    --hover-width: 73%;
+    --hover-other-width: 27%;
+    --speed: 1000ms;
+
 
 }
 
@@ -74,6 +78,11 @@ h1 {
 .split.left {
     left: 0;
     background: url("ps5.webp") no-repeat;
+    background-size: cover;
+
+}
+.split.left, .split.right, .split.right::before, .split.left::before{
+    transition: all var(--speed) ease-in-out;
 }
 
 .split.left::before {
@@ -101,5 +110,43 @@ h1 {
 
     width: 100%;
     height: 100%;
+}
+.hover-left .left{
+    width: var(--hover-width);
+}
+.hover-left .right{
+    width: var(--hover-other-width);
+}
 
+.hover-right .right{
+    width: var(--hover-width);
+}
+.hover-right .left{
+    width: var(--hover-other-width);
+}
+@media (max-width: 800px) {
+    h1 {
+        font-size: 2rem;
+        top: 30%;
+
+    }
+    .btn {
+        width: 12rem;
+        padding: 1.2rem;
+
+    }
+    .hover-left .left{
+        width: 68%;
+    }
+    .hover-left .right{
+        width: 32%;
+    }
+
+    .hover-right .right{
+        width: 68%;
+    }
+    .hover-right .left{
+        width: 32%;
+    }
+    
 }
